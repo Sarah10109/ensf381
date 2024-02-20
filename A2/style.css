@@ -2,6 +2,8 @@ main {
     background-color: #ddd;
     padding: 20px;
     margin: 20px;
+}
+.text {
     border-radius: 10px;
 }
 
