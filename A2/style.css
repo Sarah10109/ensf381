@@ -1,0 +1,83 @@
+
+/* Contact page */
+.contact-info {
+    background-color: #ddd;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 10px;
+}
+
+.contact-method {
+    background-color: #ddd;
+    padding: 0px;
+    margin: 0px;
+    border-radius: 10px;
+}
+
+#media :hover{
+    color: #007BFF;
+}
+
+
+/* Products page */
+.product-list {
+    background-color: #ddd;
+    padding: 20px;
+    margin: 20px; 
+}
+
+.container {
+    background-color: #f9f9f9;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.container:hover {
+    background-color: #ffffff;
+}
+.price-text {
+    color: #007BFF;
+    font-weight: bold;
+}
+
+.add-button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px;
+}
+
+.add-button:hover {
+    background-color: #45A049;
+}
+
+.product-img {
+    max-width: 100%;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+/* Making products page responsive to different screen sizes */
+@media screen and (min-width: 769px){
+    /* large screens */
+    table{width: 100%;}
+}
+
+@media screen and (max-width: 768px){
+    /* medium screens */
+    table{width: 100%;}
+    .container{text-align: center;}
+}
+
+@media screen and (max-width: 480px){
+    /* small screens */
+    .container{text-align: center;}
+
+}
