@@ -5,6 +5,9 @@
     padding: 20px;
     margin: 20px;
     border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .contact-method {
@@ -69,15 +72,19 @@
     object-fit: cover;
 }
 
+.product-name {
+    text-align: center;
+}
+
 /* Making products page responsive to different screen sizes */
 @media screen and (min-width: 769px){
     /* large screens */
-    table{width: 100%;}
+    .product-list{width: 100%;}
 }
 
 @media screen and (max-width: 768px){
     /* medium screens */
-    table{width: 100%;}
+    .product-list{width: 100%;}
     .container{text-align: center;}
 }
 
