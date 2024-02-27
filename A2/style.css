@@ -84,7 +84,7 @@
 
 @media screen and (max-width: 768px){
     /* medium screens */
-    .product-list{width: 100%;}
+    .product-list{width: calc(100% - 40px);}
     .container{text-align: center;}
 }
 
