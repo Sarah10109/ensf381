@@ -65,9 +65,6 @@
     max-width: 100%;
     border-radius: 8px;
     margin-bottom: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     height: 300px;
     object-fit: cover;
 }
@@ -79,7 +76,10 @@
 /* Making products page responsive to different screen sizes */
 @media screen and (min-width: 769px){
     /* large screens */
-    .product-list{width: 100%;}
+    .product-list {
+        width: calc(100% - 40px); /* subtract double the margin */
+    }
+    
 }
 
 @media screen and (max-width: 768px){
@@ -91,7 +91,6 @@
 @media screen and (max-width: 480px){
     /* small screens */
     .container{text-align: center;}
-
 }
 
 /* Overall */
