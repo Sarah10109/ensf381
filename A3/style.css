@@ -1,79 +1,28 @@
-/* styles.css */
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-}
 
-/* Header Styles */
-.header {
-    background-color: #333;
-    padding: 20px;
-    display: flex;
-    justify-content: space-between;
-}
-
-.logo img {
-    max-height: 150px; /* Adjust as needed */
-}
-
-.company-name {
-    color: white; /* Adjust text color for better visibility */
-    font-size: 30px;
-}
-
-/* Navigation Styles */
-nav {
-	background-color: #333;
-    display: flex;
-    justify-content: space-between;
-    width: 100%; 
-}
-
-.nav-link {
-    padding: 10px 20px;
-    color: white;
-    text-decoration: none;
-}
-
-/* Main Content Styles */
-main {
-    padding: 20px;
-}
-
-/* About Us Section Styles */
-.about-us {
+/* Contact page */
+.contact-info {
     background-color: #ddd;
     padding: 20px;
     margin: 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
-/* Customer Reviews Section Styles */
-.customer-reviews {
+.contact-method {
     background-color: #ddd;
-    padding: 20px;
-    margin: 20px;
+    padding: 0px;
+    margin: 0px;
+    border-radius: 10px;
 }
 
-/* Shop Now Button Styles */
-.shop-now-btn {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    margin: 20px;
+#media :hover{
+    color: #007BFF;
 }
 
-/* Footer Styles */
-.footer {
-    background-color: #333;
-    padding: 10px;
-    margin: 0;
-    color: white;
-    text-align: center;
-}
 
-/* Product List Section Styles */
+/* Products page */
 .product-list {
 	background-color: #ddd;
     flex-wrap: wrap;
@@ -129,39 +78,112 @@ main {
     background-color: #45A049;
 }
 
+/* Making products page responsive to different screen sizes */
+@media screen and (min-width: 769px){
+    /* large screens */
+    .product-list {
+        width: calc(100% - 40px); /* subtract double the margin */
+    }
+    
+}
 
-/* Contact Information Section Styles */
-.contact-info {
-	background-color: #ddd;
+@media screen and (max-width: 768px){
+    /* medium screens */
+    .product-list{width: calc(100% - 40px);}
+    .container{text-align: center;}
+}
+
+@media screen and (max-width: 480px){
+    /* small screens */
+    .container{text-align: center;}
+}
+
+/* Overall */
+.header {
+    background-color:  #333;
+    padding: 20px;
+    margin: 0;
     display: flex;
-    flex-direction: column;
+    align-items: center;
+}
+
+html{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.header > .logo > img{
+    width: 100px;
+    height: 100px;
+    flex: 0 0 auto;
+
+}
+.header > .company-name {
+    font-size: 30px;
+    line-height: 75px;
+    color: white;
+    flex: 1; 
+    text-align: right;
+}
+
+.links{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    background-color: #333;
+    
+}
+
+.links a:link, .links a:visited{
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+}
+
+/* index part  */
+.about-us{
+    margin: 20px;
+    padding: 20px;
+    flex-direction: column; 
+    display: flex;
+    background-color: #ddd;
+
+}
+
+.button{
+    padding: 10px;
+    margin: 20px;
+    background-color:  #4CAF50;
+    color: white;
+    border-radius: 4px;
+    border: none;
+    
+}
+
+.customer-reviews{
+    display: flex;
+    background-color: #ddd;
     padding: 20px;
     margin: 20px;
-    border-radius: 10px;
-}
-
-/* Contact Method Styles */
-.contact-method {
-    background-color: #ddd;
-    padding: 0px;
-    margin: 0px;
-    border-radius: 10px;
-}
-
-/* Social Media Links Styles */
-
-.contact-method ul li a {
-    color: light blue; 
-}
-/* Social Media Links Hover Effect */
-.contact-method ul li a:hover {
-    color: #007BFF; 
-}
-
-/* Login Form Section Styles */
-.login-form {
-    display: flex;
     flex-direction: column;
+    
+}
+
+.customer-reviews > h2, h3{
+    margin-bottom: 0;
+}
+
+.footer{
+    background-color: #333;
+    padding: 10px;
+    margin: 0;
+    color: white;
+    text-align: center;
+}
+
+/* login part */
+.login-form{
+    display: flex;
+    justify-content: center;
     align-items: center;
     background-color: #ddd;
     padding: 20px;
@@ -169,43 +191,40 @@ main {
     border-radius: 10px;
 }
 
-/* Form Field Styles */
-form label {
-    display: block;
+
+.signup-link{
+    color: #007bff;
     margin: 10px;
+    text-decoration: none;
+
 }
 
-form input {
+.signup-link:hover{
+    text-decoration: underline;
+}
+
+.login-btn{
+    background-color: #4CAF50;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px;
+    opacity: 0.5;
+    color: white;
+    border: none;
+}
+
+.login-btn:hover{
+    background-color: #45A049;
+    opacity: 1.0;
+}
+
+label{
+    margin: 10px;
+    display: block;
+}
+input{
     background-color: #fff;
     padding: 10px;
     margin: 10px;
     border-radius: 5px;
-}
-
-/* Login Button Styles */
-.login-btn {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    margin: 10px;
-    cursor: pointer;
-    opacity: .5
-}
-
-.login-btn:hover {
-    background-color: #45A049;
-    opacity: 1.0
-}
-
-/* Signup Link Styles */
-.signup-link {
-    color: #007BFF;
-    text-decoration: none;
-    margin: 10px;
-}
-
-.signup-link:hover {
-    text-decoration: underline;
 }
