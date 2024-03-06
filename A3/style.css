@@ -139,7 +139,7 @@ html{
     padding: 10px 20px;
 }
 
-/* index part  */
+/* index page  */
 .about-us{
     margin: 20px;
     padding: 20px;
@@ -180,7 +180,7 @@ html{
     text-align: center;
 }
 
-/* login part */
+/* login page */
 .login-form{
     display: flex;
     justify-content: center;
@@ -234,4 +234,30 @@ input{
     background-color: #f9f9f9;
     padding: 10px;
     margin: 20px;
+}
+
+/* Signup page */
+.singup-form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ddd;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 10px;
+}
+
+.signup-btn{
+    background-color: #4CAF50;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px;
+    opacity: 0.5;
+    color: white;
+    border: none;
+}
+
+.signup-btn:hover{
+    background-color: #45A049;
+    opacity: 1.0;
 }
