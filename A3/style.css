@@ -228,3 +228,10 @@ input{
     margin: 10px;
     border-radius: 5px;
 }
+
+#messageBox{
+    border: 2px solid black;
+    background-color: #f9f9f9;
+    padding: 10px;
+    margin: 20px;
+}
