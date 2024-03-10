@@ -23,7 +23,7 @@
 
 
 /* Products page */
-.product-list {
+.product-list, .cart-display {
 	background-color: #ddd;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -65,7 +65,7 @@
 }
 
 /* Button Styling */
-.product button {
+.product button, .remove-button {
     background-color: #4CAF50;
     color: white;
     padding: 10px;
@@ -73,6 +73,16 @@
     border-radius: 5px;
     margin: 10px;
 }
+
+.cart-item p, .remove-button {
+    display: inline-block;
+    margin-right: 3px;
+}
+
+.remove-button:hover {
+    background-color: #ff0000;
+}
+
 
 .product button:hover {
     background-color: #45A049;
