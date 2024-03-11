@@ -88,6 +88,23 @@
     background-color: #45A049;
 }
 
+.cart-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.remove-button {
+    margin-right: 30%;
+}
+
+.cart-item p{
+    margin-left: 30%;
+}
+
+
+
 /* Making products page responsive to different screen sizes */
 @media screen and (min-width: 769px){
     /* large screens */
