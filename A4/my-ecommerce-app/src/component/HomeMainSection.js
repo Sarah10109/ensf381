@@ -20,7 +20,7 @@ function HomeMainSection() {
   };
 
   const handleShopNowClick = () => {
-    navigate("/Productpage"); // Navigate to the Product Page
+    navigate("/products"); // Navigate to the Product Page
   };
 
   return (
