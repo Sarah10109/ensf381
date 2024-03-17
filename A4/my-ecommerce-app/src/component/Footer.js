@@ -1,14 +1,14 @@
-import React from 'react';
+import React from "react";
 
 function Footer() {
   // Styles for the footer container
   const footerStyle = {
-    display: 'flex',
-    padding: '10px',
-    position: 'fixed',
+    display: "flex",
+    padding: "10px",
+    position: "fixed",
     left: 0,
     bottom: 0,
-    width: '100%',
+    width: "100%",
   };
 
   return (
