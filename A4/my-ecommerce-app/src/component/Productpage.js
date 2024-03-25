@@ -5,8 +5,12 @@ import Cart from './Cart'; // Adjust path as necessary
 import Footer from './Footer'; // Adjust path as necessary
 
 const Productpage = () => {
-  const [cartItems, setCartItems] = useState([]);
-  
+  const [cartItems, setCartItems] = useState(() => {
+    // Load cart items from local storage when initializing state
+    const storedCartItems = localStorage.getItem('cartItems');
+    return storedCartItems ? JSON.parse(storedCartItems) : [];
+  });
+    
   const onUpdateCart = (id, newQuantity) => {
     const updatedCartItems = cartItems.map(item =>
       item.id === id ? { ...item, quantity: newQuantity } : item
