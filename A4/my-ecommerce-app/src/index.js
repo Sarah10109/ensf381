@@ -1,3 +1,7 @@
+// File: App.js
+// Group members: Suprova Hoque (30174388), Sarah Elmahdy(30170100)
+// Date completed: March 25, 2024
+
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
