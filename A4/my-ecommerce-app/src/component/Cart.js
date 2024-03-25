@@ -11,6 +11,7 @@ const Cart = ({ cartItems, onUpdateCart, onRemoveFromCart }) => {
 
   return (
     <div className="cart">
+      <h3>Shopping Cart</h3>
       {cartItems.map(item => (
         <CartItem 
           key={item.id} 
@@ -20,7 +21,7 @@ const Cart = ({ cartItems, onUpdateCart, onRemoveFromCart }) => {
         />
       ))}
       <div className="cart-total">
-        <h3>Total: ${calculateTotal(cartItems)}</h3>
+        <p>Total (in cart): ${calculateTotal(cartItems)}</p>
       </div>
     </div>
   );
