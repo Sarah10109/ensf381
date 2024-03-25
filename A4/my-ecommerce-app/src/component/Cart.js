@@ -7,10 +7,10 @@ const Cart = ({ cartItems, onUpdateCart, onRemoveFromCart }) => {
     return items.reduce((total, item) => total + item.price * item.quantity, 0).toFixed(2);
   };
   
-  
+ 
 
   return (
-    <div className="cart">
+    <div className="cart" style={{ position: 'absolute', right: '20%' }}>
       <h3>Shopping Cart</h3>
       {cartItems.map(item => (
         <CartItem 

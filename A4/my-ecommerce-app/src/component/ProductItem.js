@@ -6,9 +6,9 @@ const ProductItem = ({ product, addToCart }) => {
   return (
     <div className="product-item">
       <img src={product.image} alt={product.name} style={{ width: '100px', height: '100px' }} />
-      <h3 onMouseEnter={() => setShowDescription(true)} onMouseLeave={() => setShowDescription(false)}>
+      <p onMouseEnter={() => setShowDescription(true)} onMouseLeave={() => setShowDescription(false)}>
         {product.name}
-      </h3>
+      </p>
       {showDescription && <p>{product.description}</p>}
       <p>${product.price}</p>
       <button onClick={() => addToCart(product)}>Add to Cart</button>
