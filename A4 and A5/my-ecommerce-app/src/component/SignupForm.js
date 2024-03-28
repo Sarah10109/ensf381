@@ -61,7 +61,7 @@ const SignupForm = ({ switchToLogin }) => {
         onChange={(e) => setEmail(e.target.value)}
       />
       <br />
-      <button onClick={handleSignup}>Submit</button>
+      <button onClick={handleSignup}>Signup</button>
       <br />
       <button onClick={switchToLogin}>Switch to Login</button>
     </div>
