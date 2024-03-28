@@ -1,9 +1,10 @@
 from flask import Flask, request, jsonify, send_from_directory
+from flask_cors import CORS # Import CORS
 import json
 import os
 
 app = Flask (__name__)
-
+CORS (app, origins =["http://example.com", "http://localhost:3000"]) # Enable CORS for all domains on all routes
 def load_products():
     with open ('products.json', 'r') as f:
         return json.load(f)['products']
@@ -26,14 +27,14 @@ def get_products (product_id = None):
 
 # Create (POST) - Add a new product
 @app.route ('/products/add', methods =['POST'])
-def add_product () :
+def add_product():
     new_product = request.json
-    products = load_products ()
-    new_product ['id'] = len (products) + 1
-    products.append (new_product)
-    with open ('products.json', 'w') as f :
-        json.dump ({"products": products} , f)
-        return jsonify (new_product), 201
+    products = load_products()
+    new_product ['id'] = len(products) + 1
+    products.append(new_product)
+    with open('products.json', 'w') as f :
+        json.dump({"products": products} , f)
+    return jsonify(new_product), 201
 
 # Serve images from the "product-images" folder
 @app.route ('/product-images/<path:filename>')
