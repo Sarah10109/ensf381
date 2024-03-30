@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Index Page</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+        <header class="header">
+            <div class="logo">
+                <img src="images/compnay-logo.jfif" alt="Company logo">
+            </div>
+            <div class="company-name">
+                Grace
+            </div>
+        </header>
+        <nav class="links">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="products.html" class="nav-link">Products</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+            <a href="login.html" class="nav-link">Login</a> 
+        </nav>
+
+        <main>
+            <section class="singup-form"> 
+                <form action="#" method="post" onsubmit="validateForm(); return false;">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required placeholder="Enter your username">
+
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required placeholder="Enter your password">
+
+                <label for="confirm-password">Confirm Password:</label>
+                <input type="password" id="confirm-password" name="confirm-password" required placeholder="Enter your password">
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required placeholder="Enter your email">
+                <button type="submit" class="signup-btn">Signup</button>
+            </form>
+            </section>
+            <div id="messageBox" style="display: none;">
+                <p id="message"></p>
+            </div>
+        </main>
+        <script>
+            function validateForm() {
+                var username = document.getElementById("username").value;
+                var password = document.getElementById("password").value;
+                var confirmPassword = document.getElementById("confirm-password").value;
+                var email = document.getElementById("email").value;
+                var usernamePattern = /^[a-zA-Z][a-zA-Z0-9-_]{2,19}$/;
+                var passwordPattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s)(?=.*[!@#$%^&*()-_=+\[\]{}|;:'\",.<>?/`~]).{8,}$/;
+                var emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+                var messageBox = document.getElementById("messageBox");
+                var messageText = document.getElementById("message");
+                messageBox.style.display = "none";
+                messageText.textContent = "";
+                var count = 0;
+                var userMess = "";
+                var passMess = "";
+                var passConMess = "";
+                var emailMess = ""
+                if (!usernamePattern.test(username)) {
+                    userMess = "Invalid username." + "<br>"+ "<br>";
+                    count++;
+                }
+                
+                if (!passwordPattern.test(password)) {
+                    passMess = "Invalid password." + "<br>"+ "<br>";
+                    count++;
+                }
+                
+                if (password != confirmPassword) {
+                    passConMess = "Passwords do not match." + "<br>" + "<br>";
+                    count++;
+                }
+                
+                if (!emailPattern.test(email)) {
+                    emailMess = "Invalid email address.";
+                    count++;
+                }
+                if(count == 0){
+                messageText.textContent = "Signup successful!";
+                messageBox.style.display = "block";
+                } else{
+                    messageText.innerHTML  = userMess + passMess + passConMess + emailMess;
+                    messageBox.style.display = "block";
+                }
+            }
+        </script>                 
+        <footer class="footer">
+            <p>&copy; 2024 Grace. All rights reserved.</p>
+        </footer>
+    </body>
+</html>

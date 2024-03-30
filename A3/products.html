@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Index Page</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+        <header class="header">
+            <div class="logo">
+                <img src="images/compnay-logo.jfif" alt="Company logo">
+            </div>
+            <div class="company-name">
+                Grace
+            </div>
+        </header>
+        <div class="links">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="products.html" class="nav-link">Products</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+            <a href="login.html" class="nav-link">Login</a> 
+        </div>
+
+        <main>
+            <section class="product-list">
+                <div class="product-container">
+                    <div class="product">
+                        <img src="./images/pexels-the-glorious-studio-8891961.jpg" alt="Gold-and-silver chain and earrings" width="350px" height="350px">
+                        <h2 class="product-name">Gold-and-silver Chain and Earrings</h2>
+                        <h4 class="price">$56.74</h4>
+                        <button onclick="displayInShoppingCart(this)">Add to Cart</button>
+                    </div>
+                    <div class="product">
+                        <img src="./images/pexels-the-glorious-studio-7093769.jpg" alt="Gold-plated necklace and earring set" width="350px" height="350px">
+                        <h2 class="product-name">Gold-plated Necklace and Earrings</h2>
+                        <h4 class="price">$67.40</h4>
+                        <button onclick="displayInShoppingCart(this)">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <div class="product-container">
+                    <div class = "product">
+                        <img src="./images/pexels-the-glorious-studio-8306531.jpg" alt="Floral necklace and earring set" width="350px" height="350px">
+                        <h2 class="product-name">Floral Necklace and Earring Set</h2>
+                        <h4 class="price">$45.00</h4>
+                        <button onclick="displayInShoppingCart(this)">Add to Cart</button>
+                    </div>
+                    <div class = "product">
+                        <img src="./images/pexels-ashithosh-u-1413420.jpg" alt="Cornflower blue tassle earrings" width="350px" height="350px">
+                        <h2 class="product-name">Cornflower-Blue Tassle Earrings</h2>
+                        <h4 class="price">$35.95</h4>
+                        <button onclick="displayInShoppingCart(this)">Add to Cart</button>
+                    </div>
+                </div>
+
+                <div class="product-container">
+                    <div class = "product">
+                        <img src="./images/product-5.jpg" alt="Silver and Brown Round Pendant Necklace" width="350px" height="350px">
+                        <h2 class="product-name">Silver and Brown Round Pendant Necklace</h2>
+                        <h4 class="price">$75.00</h4>
+                        <button onclick="displayInShoppingCart(this)">Add to Cart</button>
+                    </div>
+                    <div class = "product">
+                        <img src="./images/product-6.jpg" alt="Luxurious Diamond Necklace and Earings" width="350px" height="350px">
+                        <h2 class="product-name">Luxurious Diamond Necklace and Earrings</h2>
+                        <h4 class="price">$87.35</h4>
+                        <button onclick="displayInShoppingCart(this)">Add to Cart</button>
+                    </div>
+                </div>
+
+                <div class="product-container">
+                    <div class = "product">
+                        <img src="./images/product-7.jpg" alt="Diamond Ring with Gold Band" width="350px" height="350px">
+                        <h2 class="product-name">Diamond Ring with Gold Band</h2>
+                        <h4 class="price">$102.00</h4>
+                        <button onclick="displayInShoppingCart(this)">Add to Cart</button>
+                    </div>
+                    <div class = "product">
+                        <img src="./images/product-8.jpg" alt="Diamond Ring with Gold Band" width="350px" height="350px">
+                        <h2 class="product-name">Rose Gold and Silver Studded Chain</h2>
+                        <h4 class="price">$57.95</h4>
+                        <button onclick="displayInShoppingCart(this)">Add to Cart</button>
+                    </div>
+                </div>
+            </section>
+
+            <section class="cart-display">
+                 <!-- Dynamic Cart Display -->
+                <h2>Shopping Cart</h2>
+                <div id="shopping-list">
+
+                </div>
+            </section>
+            <script>
+
+                function displayInShoppingCart(button){ 
+                    let productName = button.parentNode.getElementsByClassName('product-name')[0].innerText;
+                    let price = button.parentNode.getElementsByClassName('price')[0].innerText;
+                    let productDescription = (productName + " - " + price + " - ");
+                    var parent = document.getElementById('shopping-list');
+
+                    // update quantity if item already exists in shopping cart
+                    var existingItems = parent.getElementsByTagName('p');
+                    for (let i = 0; i < existingItems.length; i++){
+                        if (existingItems[i].innerText.startsWith(productDescription)){
+                            updateQuantity(existingItems[i], productDescription);
+                            alert(productName + " has been added to the cart.");
+                            return;
+                        }
+                    }
+
+                    // add item to shopping cart, if not present already
+                    var newDiv = document.createElement('div');
+                    newDiv.className = 'cart-item';
+
+                    var newItem = document.createElement('p');
+                    newItem.innerText = productDescription + "1";
+
+                    newDiv.appendChild(newItem);
+                    var remove_button = createRemoveButton(newDiv);
+                    alert(productName + " has been added to the cart.");
+                    parent.appendChild(newDiv);
+                    console.log(parent);
+                }
+
+                function createRemoveButton(parentElement){
+                    var newButton = document.createElement("button");
+                    newButton.className = "remove-button";
+                    newButton.textContent = "Remove";
+                    newButton.setAttribute('onclick', 'removeItem(this)');
+                    console.log(newButton);
+                    parentElement.appendChild(newButton);
+                }
+
+                function updateQuantity(item, productDescription){
+                    let quantity = parseInt(item.innerText.split(' - ').pop()) + 1;
+                    item.innerText = productDescription + quantity;
+                }
+
+                function removeItem(button) {
+                    let item = button.parentNode;
+                    let quantityText = item.getElementsByTagName('p')[0].innerText;
+                    let quantity = parseInt(quantityText.split(' - ').pop());
+
+                    if (quantity > 1) {
+                        // Decrement the quantity
+                        quantity--;
+                        item.getElementsByTagName('p')[0].innerText = quantityText.slice(0, quantityText.lastIndexOf(' - ')) + ' - ' + quantity;
+                    } else {
+                        // Remove the entire item
+                        item.parentNode.removeChild(item);
+                    }
+                 }
+
+            </script>
+        </main>
+        <footer class="footer">
+            <p>&copy; 2024 Grace. All rights reserved.</p>
+        </footer>
+    </body>
+</html>
