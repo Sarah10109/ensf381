@@ -44,6 +44,7 @@ const LoginForm = ({ switchToSignup }) => {
     navigate('/products')
   }
 
+
   return (
     <div>
       <h1>Login</h1>
