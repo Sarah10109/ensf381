@@ -1,5 +1,4 @@
 // SignupForm.js
-
 import React, { useState } from 'react';
 
 const SignupForm = ({ switchToLogin }) => {
@@ -10,47 +9,43 @@ const SignupForm = ({ switchToLogin }) => {
   const [errorMessage, setErrorMessage] = useState("");
   const [message, setMessage] = useState("");
   const [signupAuthenticated, setSignupAuthenticated] = useState(true);
-
+  
   const handleSignup = () => {
     // Validate and handle signup logic here
     if (username && password && confirmPassword && email) {
-        setErrorMessage('');
       if (password === confirmPassword) {
-        setErrorMessage('User signed up successfully!');
-        // Add your signup logic (e.g., API calls, user registration, etc.)
+        // Authenticating signup
+        fetch('http://127.0.0.1:5000/signup', {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({'username': username, 'password': password, 'email': email})
+        }).then(response => response.json())
+          .then(response => {
+            if (!response.signupAuthenticated) {
+              setSignupAuthenticated(false);
+              setMessage("Username already exists.")
+            } else {
+              setSignupAuthenticated(true);
+              setMessage('User signed up successfully!');
+              setErrorMessage(''); // Clear any previous error messages
+            }
+          }).catch(error => {
+            console.error(error);
+            setMessage('An error occurred.');
+          });
       } else {
         setErrorMessage('Passwords do not match!');
       }
     } else {
-        setErrorMessage('All fields are required.');
+      setErrorMessage('All fields are required.');
     }
-
-    // Authenticating signup
-    fetch('http://127.0.0.1:5000/signup', {
-      method: 'POST',
-      headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify({'username': username, 'password': password, 'email': email})
-    }).then(response => response.json())
-    .then(response => {
-      if (!response.signupAuthenticated) {
-        setSignupAuthenticated(true);
-        setMessage("Signup failed. Username already exists")
-      } else {
-        setSignupAuthenticated(false);
-        setMessage('Signup successful');
-      }
-    }).catch(error => {
-      console.error(error);
-      setMessage('An error occurred.');
-    });
-
   };
-
-
+    
   return (
     <div>
         <h1>Signup</h1>
         {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
+        {message && <p style={{ color: "red" }}>{message}</p>}
 
         <label>Username: </label>
       <input
@@ -87,7 +82,6 @@ const SignupForm = ({ switchToLogin }) => {
       <button onClick={handleSignup}>Signup</button>
       <br />
       <button onClick={switchToLogin}>Switch to Login</button>
-      {message && <p style={{ color: "red" }}>{message}</p>}
     </div>
   );
 };
