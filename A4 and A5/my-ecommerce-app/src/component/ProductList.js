@@ -4,13 +4,6 @@ import ProductItem from './ProductItem'; // Adjust the import path as necessary
 function ProductList({ addToCart }) {
     const [productsData, setProductsData] = useState([]);
 
-    // useEffect(() => {
-    //     fetch('/products')
-    //         .then(response => response.json())
-    //         .then(data => setProductsData(data));
-    // }, []);
-  
-
     useEffect(() => {
       fetch('http://127.0.0.1:5000/products')
           .then(response => {
