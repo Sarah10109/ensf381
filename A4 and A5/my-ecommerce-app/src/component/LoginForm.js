@@ -1,3 +1,4 @@
+// LoginForm.js
 import React, { useState } from "react";
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
@@ -12,32 +13,30 @@ const LoginForm = ({ switchToSignup }) => {
   const { authenticated, setAuthenticated } = useContext(LoginContext);
 
   const handleLogin = () => {
-    // Validate and handle login logic here
     if (username && password) {
-      // Authenticating login
-    fetch('http://127.0.0.1:5000/login', {
-      method: 'POST',
-      headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify({'username': username, 'password': password})
-    }).then(response => response.json())
-    .then(response => {
-      if (response.authenticated) {
-        setAuthenticated(true);
-        setMessage("Login successful")
-        navigate('/products');
-      } else {
-        setAuthenticated(false);
-        setMessage('Incorrect username or password.');
-      }
-    }).catch(error => {
-      console.error(error);
-      setMessage('An error occurred.');
-    });
+      fetch('http://127.0.0.1:5000/login', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({'username': username, 'password': password})
+      }).then(response => response.json())
+      .then(response => {
+        if (response.authenticated) {
+          setAuthenticated(true);
+          setMessage("Login successful");
+          navigate('/products'); // Redirect to the products page after successful login
+        } else {
+          setAuthenticated(false);
+          setMessage('Incorrect username or password.');
+        }
+      }).catch(error => {
+        console.error(error);
+        setMessage('An error occurred.');
+      });
       console.log("Logged in successfully!");
-      setErrorMessage(""); // Clear the error message
+      setErrorMessage("");
     } else {
       setErrorMessage("Please fill in both fields.");
-      setMessage(''); // Clear any previous messages
+      setMessage('');
     }
   };
 
