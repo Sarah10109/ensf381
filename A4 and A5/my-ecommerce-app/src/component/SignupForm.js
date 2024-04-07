@@ -29,6 +29,10 @@ const SignupForm = ({ switchToLogin }) => {
               setSignupAuthenticated(true);
               setMessage('User signed up successfully!');
               setErrorMessage(''); // Clear any previous error messages
+              setUsername('');
+              setPassword('');
+              setConfirmPassword('');
+              setEmail('');
             }
           }).catch(error => {
             console.error(error);
